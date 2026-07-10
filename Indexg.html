@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory de Señales de Alerta - Juego Educativo</title>
+    <link rel="stylesheet" href="Stylog.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Memory de Señales de Alerta</h1>
+            <p class="subtitle">¡Aprende sobre emergencias y desastres naturales!</p>
+        </header>
+
+        <!-- Menu Principal -->
+        <div id="menuPrincipal" class="menu-principal">
+            <h2>Selecciona el Nivel de Dificultad</h2>
+            
+            <div class="niveles-container">
+                <button class="btn-nivel" onclick="iniciarJuego('facil')">
+                    <span class="dificultad">⭐ Fácil</span>
+                    <span class="detalles">4 pares de señales</span>
+                </button>
+                
+                <button class="btn-nivel" onclick="iniciarJuego('medio')">
+                    <span class="dificultad">⭐⭐ Medio</span>
+                    <span class="detalles">8 pares de señales</span>
+                </button>
+                
+                <button class="btn-nivel" onclick="iniciarJuego('dificil')">
+                    <span class="dificultad">⭐⭐⭐ Difícil</span>
+                    <span class="detalles">16 pares de señales</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Área del Juego -->
+        <div id="areaJuego" class="area-juego hidden">
+            <!-- Estadísticas -->
+            <div class="estadisticas">
+                <div class="stat">
+                    <span class="label">Nivel:</span>
+                    <span id="nivelActual" class="valor">Fácil</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Pares encontrados:</span>
+                    <span id="paresEncontrados" class="valor">0 / 4</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Intentos:</span>
+                    <span id="intentos" class="valor">0</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Tiempo:</span>
+                    <span id="tiempo" class="valor">0s</span>
+                </div>
+            </div>
+
+            <!-- Tablero del Juego -->
+            <div id="tablero" class="tablero"></div>
+
+            <!-- Botones de Control -->
+            <div class="controles">
+                <button class="btn-control" onclick="reiniciarJuego()"> Reiniciar</button>
+                <button class="btn-control" onclick="volverMenu()"> Menú Principal</button>
+            </div>
+        </div>
+
+        <!-- Pantalla de Victoria -->
+        <div id="pantallasVictoria" class="pantalla-victoria hidden">
+            <div class="modal-victoria">
+                <h2>¡Ganaste!</h2>
+                <div class="resultados">
+                    <p><strong>Nivel:</strong> <span id="nivelFinal"></span></p>
+                    <p><strong>Pares encontrados:</strong> <span id="paresFinal"></span></p>
+                    <p><strong>Intentos:</strong> <span id="intentosFinal"></span></p>
+                    <p><strong>Tiempo total:</strong> <span id="tiempoFinal"></span></p>
+                    <p><strong>Puntuación:</strong> <span id="puntuacionFinal"></span> ⭐</p>
+                </div>
+                <div class="botones-victoria">
+                    <button class="btn-victoria" onclick="reiniciarJuego()">Jugar de Nuevo</button>
+                    <button class="btn-victoria btn-victoria-menu" onclick="volverMenu()">Cambiar Nivel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información Educativa -->
+        <div id="infoEducativa" class="info-educativa hidden">
+            <button class="btn-cerrar" onclick="cerrarInfo()">✕</button>
+            <div class="contenido-info">
+                <h3 id="tituloInfo"></h3>
+                <p id="textoInfo"></p>
+                <div id="imagenInfo" class="imagen-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="javag.js"></script>
+</body>
+</html>
